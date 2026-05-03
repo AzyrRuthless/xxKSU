@@ -84,7 +84,7 @@
 #define SYS_REBOOT_SYMBOL "__x64_sys_reboot"
 #define SYS_NEWFSTAT_SYMBOL "__x64_sys_newfstat"
 #define SYS_FSTAT64_SYMBOL "__ia32_compat_sys_x86_fstat64"
-#define SYS_NEWFSTAT_SYMBOL "__x64_sys_read"
+#define SYS_NEWFSTAT_SYMBOL "__x64_sys_newfstat"
 #else
 #define SYS_EXECVE_SYMBOL "sys_execve"
 #define SYS_REBOOT_SYMBOL "sys_reboot"
