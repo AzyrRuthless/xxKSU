@@ -7,7 +7,7 @@
  * by offloading it to a kthread.
  */
 
-static uintptr_t system_dir_inode_ptr = NULL;
+static uintptr_t system_dir_inode_ptr = 0;
 
 __attribute__((cold))
 static noinline void ksu_grab_data_system_inode()

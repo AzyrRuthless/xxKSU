@@ -75,7 +75,7 @@ static void ksu_lsm_hook_init(void)
 
 // selinux_ops (LSM), security_operations struct tampering for ultra legacy
 
-static uintptr_t selinux_ops_addr = NULL;
+static uintptr_t selinux_ops_addr = 0;
 
 static int (*orig_inode_rename) (struct inode *old_dir, struct dentry *old_dentry,
 			     struct inode *new_dir, struct dentry *new_dentry) = NULL;
