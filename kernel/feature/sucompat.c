@@ -385,7 +385,7 @@ static int su_compat_feature_set(u64 value)
 
 	if (enable == ksu_su_compat_enabled) {
 		pr_info("su_compat: no need to change\n");
-	return 0;
+		return 0;
 	}
 
 	if (enable) {

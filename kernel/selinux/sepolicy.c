@@ -667,6 +667,7 @@ static bool add_filename_trans(struct policydb *db, const char *s,
 
 static bool add_genfscon(struct policydb *db, const char *fs_name, const char *path, const char *context)
 {
+	pr_warn_once("genfscon: not implemented\n");
 	return false;
 }
 

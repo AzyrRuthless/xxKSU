@@ -2,7 +2,7 @@
 
 static bool ksu_adb_root __read_mostly = false;
 
-static long is_exec_adbd(const char __user **filename_user)
+static bool is_exec_adbd(const char __user **filename_user) {
 {
 	// should be bigger than `/apex/com.android.adbd/bin/adbd`
 	char buf[40] = { 0 };
@@ -16,7 +16,7 @@ static long is_exec_adbd(const char __user **filename_user)
 
 	pr_info("%s: adbd: %s \n", __func__, buf);
 
-	return 1;
+	return true;
 }
 
 static long is_libadbroot_ok()
@@ -150,7 +150,7 @@ static noinline void do_ksu_adb_root_handle_execve(void *filename, void *envp_in
 	// filename is void * char __user *
 	const char __user **filename_user = (const char __user **)filename;
 
-	if (likely(!is_exec_adbd(filename_user)))
+	if (likely(is_exec_adbd(filename_user)))
 		return;
 
 	if (unlikely(!is_libadbroot_ok()))

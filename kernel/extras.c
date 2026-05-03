@@ -10,8 +10,8 @@ static u32 priv_app_sid = 0;
 // init as disabled by default
 static atomic_t disable_spoof = ATOMIC_INIT(1);
 
-void ksu_avc_spoof_enable();
-void ksu_avc_spoof_disable();
+void ksu_avc_spoof_enable(void);
+void ksu_avc_spoof_disable(void);
 
 static bool ksu_avc_spoof_enabled = true;
 static bool boot_completed = false;
