@@ -53,9 +53,12 @@ static int ksu_sha256(const unsigned char *data, unsigned int datalen,
 static bool check_block(struct file *fp, u32 *size4, loff_t *pos, u32 *offset,
 			unsigned expected_size, const char *expected_sha256)
 {
-	kernel_read(fp, size4, 0x4, pos); // signer-sequence length
-	kernel_read(fp, size4, 0x4, pos); // signer length
-	kernel_read(fp, size4, 0x4, pos); // signed data length
+	if (kernel_read(fp, size4, 0x4, &pos) != 0x4)
+		return false; // signer-sequence length
+	if (kernel_read(fp, size4, 0x4, &pos) != 0x4)
+		return false; // signer length
+	if (kernel_read(fp, size4, 0x4, &pos) != 0x4)
+		return false; // signed data length
 
 	*offset += 0x4 * 3;
 
